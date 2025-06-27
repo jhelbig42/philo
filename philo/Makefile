@@ -17,7 +17,8 @@ SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = inc
 
-SRC = main.c 
+SRC = main.c \
+	parser.c
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
@@ -28,7 +29,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 MAKEALL = make all
 MAKECLEAN = make clean
@@ -40,10 +41,10 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
-	$(CC) $(OBJ) $(LIBFT_A) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -o $(NAME)
 	
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
@@ -54,6 +55,7 @@ clean:
 
 fclean: clean
 	rm -r $(OBJ_DIR)
+	rm $(LIBFT_A)
 	rm -f $(NAME)
 
 re: fclean all

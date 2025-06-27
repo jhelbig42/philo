@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 16:32:42 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/06/27 09:40:09 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/04/15 12:05:00 by jhelbig           #+#    #+#             */
+/*   Updated: 2025/05/13 15:07:23 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <pthread.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct s_table
+int	ft_isnumber(char *str)
 {
-	int		philo_nb;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		meal_nb;
+	int	i;
 
-}	t_table;
-
-//parser
-int create_table(char **argv, t_table *table);
+	i = 0;
+	if (str[i] && (str[i] == '+' || str[i] == '-'))
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}

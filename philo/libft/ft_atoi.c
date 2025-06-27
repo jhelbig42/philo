@@ -58,13 +58,4 @@ static int	is_number(char *str, int i)
 	else
 		return (0);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	*str = " - 123a235174";
 
-	printf("%d", ft_atoi(str));
-	return (0);
-}
-*/
