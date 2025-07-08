@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 			return (1);
 		//have meal
 		//clean
+		clean_table(&table);
 	}
 	else
 	{

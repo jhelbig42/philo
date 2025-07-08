@@ -25,13 +25,13 @@ int	create_table(char **argv, t_table *table)
 		i++;
 	}
 	//atois
-	table->philo_nb = ft_atoi(argv[1]);
-	table->time_to_die = ft_atoi(argv[2]);
-	table->time_to_eat = ft_atoi(argv[3]);
-	table->time_to_sleep = ft_atoi(argv[4]);
+	table->philo_nb = (long)ft_atoi(argv[1]);
+	table->time_to_die = (long)ft_atoi(argv[2]);
+	table->time_to_eat = (long)(ft_atoi(argv[3]) * 1e3);
+	table->time_to_sleep = (long)(ft_atoi(argv[4]) * 1e3);
 	if (argv[5])
-		table->meal_nb = ft_atoi(argv[5]);
+		table->max_meal_nb = ft_atoi(argv[5]);
 	else
-		table->meal_nb = -1;
+		table->max_meal_nb = -1;
 	return (0);
 }

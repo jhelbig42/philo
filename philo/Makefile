@@ -17,9 +17,11 @@ SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = inc
 
-SRC = main.c \
-	parser.c
-
+SRC =	clean.c \
+	init.c \
+	main.c \
+	parser.c 
+	
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 HEADERS = $(INC_DIR)/philo.h
