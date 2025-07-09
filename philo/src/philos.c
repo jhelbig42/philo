@@ -2,8 +2,9 @@
 
 void    just_one(t_table *table)
 {
-    //philo_status(&table->philos[0], FORK);
-    usleep(table->time_to_die);
+    table->start_time = get_timestamp();
+    philo_status(&table->philos[0], LEFT_FORK);
+    usleep(table->time_to_die * 1e3);
     philo_status(&table->philos[0], DIED);
 }
 
@@ -37,7 +38,7 @@ void    philo_status(t_philo *philo, t_status status)
         printf("%ld %d is sleeping\n", timestamp, philo->id);
     else if (status == THINKING && !finished(philo->table))
         printf("%ld %d is thinking\n", timestamp, philo->id);
-    else if (status == DIED && !finished(philo->table))
+    else if (status == DIED)
         printf("%ld %d died\n", timestamp, philo->id);
     pthread_mutex_unlock(&philo->table->write_mtx);
 
@@ -100,6 +101,7 @@ void    *philo_life(void *data)
         usleep(philo->table->time_to_sleep * 1e3);
         //think
         philo_status(philo, THINKING);
+        usleep(100);
     }
 
     return (NULL);

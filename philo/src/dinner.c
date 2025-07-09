@@ -34,12 +34,12 @@ void    *monitor(void *data)
             if (done == true)
             {
                 full_philos++;
-                if(full_philos == table->philo_nb)
+                if (full_philos == table->philo_nb)
                 {
                     pthread_mutex_lock(&table->table_mtx);
                     table->done = true;
                     pthread_mutex_unlock(&table->table_mtx);
-                    printf("done because of full\n");
+                    printf("all are full\n");
                     break ;
                 }
             }
