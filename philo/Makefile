@@ -18,9 +18,12 @@ OBJ_DIR = obj
 INC_DIR = inc
 
 SRC =	clean.c \
+	dinner.c \
 	init.c \
 	main.c \
-	parser.c 
+	parser.c \
+	philos.c \
+	time.c
 	
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

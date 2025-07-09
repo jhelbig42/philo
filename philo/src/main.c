@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		if (set_table(&table))
 			return (1);
 		//have meal
+		dinner(&table);
 		//clean
 		clean_table(&table);
 	}

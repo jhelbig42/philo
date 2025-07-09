@@ -10,7 +10,7 @@ void    init_philo(t_table *table)
         table->philos[i].id = i + 1;
         table->philos[i].meals = 0;
         table->philos[i].done = false;
-        table->philos[i].time_since_last_meal = 0;
+        table->philos[i].time_last_meal = get_timestamp();
         table->philos[i].right_fork = &table->forks[i];
         if (i == 0)
             table->philos[i].left_fork = &table->forks[table->philo_nb - 1];
@@ -26,6 +26,7 @@ int     set_table(t_table *table)
     int     i;
     
     table->done = false;
+    table->ready_to_go = false;
     
     table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nb);
     if (!table->philos)
@@ -42,5 +43,4 @@ int     set_table(t_table *table)
     }
     init_philo(table);
     return(0);
-
 }

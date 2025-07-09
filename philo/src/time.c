@@ -1,5 +1,19 @@
 #include "../inc/philo.h"
 
+//return milliseconds
+long    get_timestamp()
+{
+    struct timeval  tv;
+    long            time_in_ms;
+
+    if (gettimeofday(&tv, NULL))
+        return (printf("gettime failed\n"), -1);
+    
+    time_in_ms = tv.tv_sec * 1e3 + tv.tv_usec / 1e3;
+    return (time_in_ms);
+}
+
+/*
 int main(int argc, char **argv)
 {
     //beginning time
@@ -20,3 +34,4 @@ int main(int argc, char **argv)
     elapsed_time = usec_end - usec_start;
     printf("elapsed time: %lld\n", elapsed_time);
 }
+*/
