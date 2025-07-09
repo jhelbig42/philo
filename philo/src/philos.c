@@ -21,7 +21,7 @@ void    synchro_philos(t_table *table)
     return ;
 }
 
-void    philo_status(t_philo *philo, t_philo_status status)
+void    philo_status(t_philo *philo, t_status status)
 {
     long    timestamp;
 
@@ -30,9 +30,9 @@ void    philo_status(t_philo *philo, t_philo_status status)
     if (status == EATING && !finished(philo->table))
         printf("%ld %d is eating\n", timestamp, philo->id);
     else if (status == LEFT_FORK && !finished(philo->table))
-        printf("%ld %d has taken left fork\n", timestamp, philo->id);
+        printf("%ld %d has taken a fork\n", timestamp, philo->id);
     else if (status == RIGHT_FORK && !finished(philo->table))
-        printf("%ld %d has taken right fork\n", timestamp, philo->id);
+        printf("%ld %d has taken a fork\n", timestamp, philo->id);
     else if (status == SLEEPING && !finished(philo->table))
         printf("%ld %d is sleeping\n", timestamp, philo->id);
     else if (status == THINKING && !finished(philo->table))
@@ -60,14 +60,20 @@ void    eat(t_philo *philo)
         pthread_mutex_lock(&philo->left_fork->fork);
         philo_status(philo, LEFT_FORK);
     }
-    //eat
+    //start eat
     philo_status(philo, EATING);
     philo->time_last_meal = get_timestamp();
-    usleep(philo->table->time_to_eat * 1e3);
     philo->meals++;
+    
     //full?
     if (philo->table->max_meal_nb > 0 && philo->meals == philo->table->max_meal_nb)
+    {
+        pthread_mutex_lock(&philo->philo_mtx);
         philo->done = true;
+        pthread_mutex_unlock(&philo->philo_mtx);
+    }
+    //actual eating
+    usleep(philo->table->time_to_eat * 1e3);
     //release forks
     pthread_mutex_unlock(&philo->left_fork->fork);
     pthread_mutex_unlock(&philo->right_fork->fork);

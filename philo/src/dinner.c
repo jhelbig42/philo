@@ -19,6 +19,7 @@ void    *monitor(void *data)
     t_table *table;
     int     i;
     int     full_philos;
+    bool    done;
 
     table = (t_table *)data;
     while (!finished(table))
@@ -27,27 +28,33 @@ void    *monitor(void *data)
         full_philos = 0;
         while (i < table->philo_nb)
         {
-            if (table->philos[i].done == true)
+            pthread_mutex_lock(&table->philos[i].philo_mtx);
+            done = table->philos[i].done;
+            pthread_mutex_unlock(&table->philos[i].philo_mtx);
+            if (done == true)
             {
                 full_philos++;
                 if(full_philos == table->philo_nb)
                 {
+                    pthread_mutex_lock(&table->table_mtx);
                     table->done = true;
+                    pthread_mutex_unlock(&table->table_mtx);
                     printf("done because of full\n");
                     break ;
                 }
             }
             else if ((get_timestamp() - table->philos[i].time_last_meal) > table->time_to_die)
             {
-                philo_status(&table->philos[i], DIED);
+                pthread_mutex_lock(&table->table_mtx);
                 table->done = true;
+                pthread_mutex_unlock(&table->table_mtx);
+                philo_status(&table->philos[i], DIED);
                 break ;
             }
             i++;
         }
     }
     return (NULL);
-
 }
 
 void    dinner(t_table *table)
@@ -78,7 +85,10 @@ void    dinner(t_table *table)
     }
     //dinner_ready
     table->start_time = get_timestamp();
+    pthread_mutex_lock(&table->table_mtx);
     table->ready_to_go = true;
+    pthread_mutex_unlock(&table->table_mtx);
+    
     //join threads -- wait for everyone
     i = 0;
     while (i < table->philo_nb)

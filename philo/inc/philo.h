@@ -37,6 +37,7 @@ struct s_philo
 	t_fork	*left_fork;
 	long	time_last_meal;
 	t_table	*table;
+	pthread_mutex_t	philo_mtx;
 };
 
 struct s_table
@@ -64,7 +65,7 @@ typedef enum	e_status
 	THINKING,
 	EATING,
 	DIED,
-}	t_philo_status;
+}	t_status;
 
 //parser
 int create_table(char **argv, t_table *table);
@@ -85,4 +86,4 @@ bool    finished(t_table *table);
 //philos
 void    just_one(t_table *table);
 void    *philo_life(void *data);
-void    philo_status(t_philo *philo, t_philo_status status);
+void    philo_status(t_philo *philo, t_status status);

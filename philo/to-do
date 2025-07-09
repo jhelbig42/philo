@@ -1,5 +1,5 @@
- - Fehlermeldung farbig
 
- - precise usleep?
-- check for finish before writing
--mutex for philo- races with monitor?
+
+naaaah - precise usleep?
+done - check for finish before writing
+- mutex for philo- races with monitor?
