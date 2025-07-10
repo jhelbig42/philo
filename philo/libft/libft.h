@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:29:50 by jhelbig           #+#    #+#             */
-/*   Updated: 2024/11/22 13:57:52 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/10 10:36:56 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
-int	ft_isnumber(char *str);
+int		ft_isnumber(char *str);
 int		ft_isprint(int c);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -74,13 +74,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //printf functions
-int	print_char(int c);
-int	ft_printf(const char *format, ...);
-int	print_number_base(long long nbr, char *base, int base_len);
-int	print_ull_base(unsigned long long nbr, char *base, int base_len);
-int	print_pointer(void *pointer);
-int	print_str(char *str);
-
-
+int		print_char(int c);
+int		ft_printf(const char *format, ...);
+int		print_number_base(long long nbr, char *base, int base_len);
+int		print_ull_base(unsigned long long nbr, char *base, int base_len);
+int		print_pointer(void *pointer);
+int		print_str(char *str);
 
 #endif

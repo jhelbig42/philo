@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:18:59 by jhelbig           #+#    #+#             */
-/*   Updated: 2024/11/22 12:00:22 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/10 10:37:22 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ static int	is_number(char *str, int i)
 	else
 		return (0);
 }
-

@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/10 09:29:05 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/10 10:04:38 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC =	clean.c \
 	dinner.c \
 	init.c \
 	main.c \
+	monitor.c \
 	parser.c \
 	philos.c \
 	time.c \
