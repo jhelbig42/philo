@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:32:42 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/06/27 09:40:09 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/10 09:38:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,7 @@ bool    finished(t_table *table);
 void    just_one(t_table *table);
 void    *philo_life(void *data);
 void    philo_status(t_philo *philo, t_status status);
+
+//utils
+void    error(char *msg);
+void    set_bool_mtx(pthread_mutex_t *mtx, bool *var, bool val);

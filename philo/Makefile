@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/06/27 08:14:21 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/10 09:29:05 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC =	clean.c \
 	main.c \
 	parser.c \
 	philos.c \
-	time.c
+	time.c \
+	utils.c
 	
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
