@@ -87,7 +87,7 @@ void	*philo_life(void *data)
 		philo_status(philo, SLEEPING);
 		usleep(philo->table->time_to_sleep * 1e3);
 		philo_status(philo, THINKING);
-		usleep(100);
+		usleep(1000);
 	}
 	return (NULL);
 }

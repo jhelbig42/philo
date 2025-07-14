@@ -36,7 +36,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 CC = cc
 
-CFLAGS = -g -Wall -Wextra -Werror -O0
+CFLAGS = -g -Wall -Wextra -Werror -O0 -fsanitize=thread
 
 MAKEALL = make all
 MAKECLEAN = make clean
