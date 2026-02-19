@@ -1,7 +1,7 @@
 # Objective
 Handling the philosophers problem as a C programm, to learn forks, threads and mutexes
 
-# running the programm
+### running the programm
 ```
 ./philo number_of_philos time_to_die time_to_eat time_to_sleep [number_of_times_to_eat]
 ```
